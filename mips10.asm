@@ -19,19 +19,23 @@ for:
       	addi $8, $8, 4
       	addi $9, $9, -1      
       	j for
-fim:  addi $20, $0, 0x00ffffff
-      lui $21, 0x1001
-      sw $20, 0($21)
+      	
+fim:  
+	addi $20, $0, 0x00ffffff
+      	lui $21, 0x1001
+      	sw $20, 0($21)
      
-      addi $22, $0, 512
-fmv:  beq $22, $0, sai2
-      lw $23, 2048($21)
-      sw $23, 0($21)
-      addi $21, $21, 4
-      sw $20, 0($21)
-      jal sleep
-      addi $22, $22, -1
-      j fmv
+      	addi $22, $0, 512
+      	
+fmv:  
+	beq $22, $0, sai2
+      	lw $23, 2048($21)
+      	sw $23, 0($21)
+      	addi $21, $21, 4
+      	sw $20, 0($21)
+      	jal sleep
+      	addi $22, $22, -1
+      	j fmv
 sai2:                  
       addi $2, $0, 10
       syscall      
